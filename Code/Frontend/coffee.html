@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>index</title>
+    <title>coffee</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="style/screen.css" />
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
-    <script src="script/app.js"></script>
+    <script src="script/appcoffee.js"></script>
     <script src="script/datahandler.js"></script>
   </head>
   <body>
     <header class="o-row--white">
-      <div class="o-container">
+      <div class="o-container--nav">
           <div class="c-header">
-              <div class="c-header__logo">   
+              <div class="c-header__logo">
                   <h1 class="c-logo">
                       <a href='index.html'>
-                        <p>Coffi</p>
-                      </a>  
+                          <p>Coffi</p>
+                      </a>
                   </h1>
               </div>
               <div class="c-header__nav">
@@ -27,7 +27,7 @@
                       <ul class="o-list c-nav__list">
                           <li class="c-nav__item"><a href="/water.html" class="c-nav__link">Water</a></li>
                           <li class="c-nav__item"><a href="/temperature.html" class="c-nav__link">Temperature</a></li>
-                          <li class="c-nav__item"><a href="/coffee.html" class="c-nav__link">Coffee</a></li>
+                          <li class="c-nav__item"><a href="/coffee.html" class="c-nav__link c-nav__link_active">Coffee</a></li>
                       </ul>
                   </nav>
               </div>
@@ -40,24 +40,44 @@
                     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                   </svg>
                 </button>
-              </div>      
+              </div>         
           </div>
       </div>
   </header>
   <section class=o-row>
-    <div class=o-container__content> 
+    <div class=o-container__content>
+      <p>Make a coffee</p>
         <div class="o-layout o-layout--align-center o-layout--justify-center">
-          <div class="o-layout__item o-layout--padding">        
-            <div class=js-waterniveau><p>Waterlevel:<br />Loading</p></div>
-          </div>
           <div class="o-layout__item o-layout--padding">
-            <div class="js-coffeemug"><p>Coffeemug:<br />Loading</p></div>
+            <button id="js-koffieknop" class="js-koffieknop o-button">MAKE COFFEE</button>
           </div>
+        </div>
+        <p>Plan a coffee</p>
+        <div class="o-layout o-layout--align-center o-layout--justify-center">
           <div class="o-layout__item o-layout--padding">
             <div class="js-nextcoffee"<p>Next coffee planned:<br /> N/A</p></div>
           </div>
+          <div class="o-layout__item o-layout--padding">
+            <p>Add a coffee</p>
+            <div>
+              <p><input type="datetime-local" class="js-DateTime" id="js-DateTime" name="meeting-time"></p>
+            </div>
+            <button id="js-save" class="js-save o-button">ADD</button>
+          </div>
+          <div class="o-layout__item o-layout--padding">
+            <p>Delete a coffee</p>
+            <div>
+              <p>Choose a coffee:
+                <select id="js-select" class="js-select">
+                  
+                </select>
+              </p>
+            </div>
+            <button id="js-delete" class="js-delete o-button">DELETE</button>
+          </div>
+
         </div>
-    </div>
+    </div>   
   </section>
   <footer class="c-footer">
     <div class="o-row">
@@ -86,11 +106,11 @@
                 <ul class="o-list c-nav__list">
                     <li class="c-nav__item"><a href="water.html" class="c-nav__link">Water</a></li>
                     <li class="c-nav__item"><a href="temperature.html" class="c-nav__link">Temperature</a></li>
-                    <li class="c-nav__item"><a href="coffee.html" class="c-nav__link">Coffee</a></li>                  
+                    <li class="c-nav__item"><a href="coffee.html" class="c-nav__link c-nav__link_active">Coffee</a></li>                  
                 </ul>
             </nav>
         </div>
     </div>
-  </aside>
+</aside>
 </body>
 </html>

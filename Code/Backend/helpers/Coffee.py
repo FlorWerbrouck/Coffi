@@ -12,3 +12,6 @@ class Coffee:
         GPIO.output(self.GPIO_LEVELSHIFTER, False)
         time.sleep(0.5)
         GPIO.output(self.GPIO_LEVELSHIFTER, True)
+
+# knop = Coffee()
+# knop.press()

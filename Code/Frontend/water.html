@@ -4,28 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>index</title>
+    <title>water</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="style/screen.css" />
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
-    <script src="script/app.js"></script>
+    <script src="script/appwater.js"></script>
     <script src="script/datahandler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   </head>
   <body>
     <header class="o-row--white">
-      <div class="o-container">
+      <div class="o-container--nav">
           <div class="c-header">
-              <div class="c-header__logo">   
+              <div class="c-header__logo">
                   <h1 class="c-logo">
-                      <a href='index.html'>
+                    <a href='index.html'>
                         <p>Coffi</p>
-                      </a>  
+                    </a>  
                   </h1>
               </div>
               <div class="c-header__nav">
                   <nav class=c-nav>
                       <ul class="o-list c-nav__list">
-                          <li class="c-nav__item"><a href="/water.html" class="c-nav__link">Water</a></li>
+                          <li class="c-nav__item"><a href="/water.html" class="c-nav__link c-nav__link_active">Water</a></li>
                           <li class="c-nav__item"><a href="/temperature.html" class="c-nav__link">Temperature</a></li>
                           <li class="c-nav__item"><a href="/coffee.html" class="c-nav__link">Coffee</a></li>
                       </ul>
@@ -40,21 +41,22 @@
                     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                   </svg>
                 </button>
-              </div>      
+              </div>            
           </div>
       </div>
   </header>
   <section class=o-row>
     <div class=o-container__content> 
+        <p>Water usage</p>
         <div class="o-layout o-layout--align-center o-layout--justify-center">
           <div class="o-layout__item o-layout--padding">        
-            <div class=js-waterniveau><p>Waterlevel:<br />Loading</p></div>
+            <div class=js-totalwater><p>Total water usage:<br />Loading</p></div>
           </div>
-          <div class="o-layout__item o-layout--padding">
-            <div class="js-coffeemug"><p>Coffeemug:<br />Loading</p></div>
+          <div class="o-layout__item o-layout--padding">        
+            <div class=js-totalwateravg><p>Average water usage:<br />Loading</p></div>
           </div>
-          <div class="o-layout__item o-layout--padding">
-            <div class="js-nextcoffee"<p>Next coffee planned:<br /> N/A</p></div>
+          <div class="o-layout__item o-layout--padding">        
+            <div class="js-chart o-chart">water</div>
           </div>
         </div>
     </div>
@@ -67,30 +69,30 @@
     </div>
   </footer>
   <aside class="c-mobile-nav">
-    <div class="c-mobile-nav__bg"></div>
-    <div class="c-mobile-nav__body">
-        <div class="c-mobile-nav__header">
-            <div class="c-header__logo">
-                <a href="index.html">
-                    <h1>Coffi</h1>
-                </a>
-            </div>
-            <button class="o-button-reset c-nav-trigger js-toggle-nav">
-                <svg class="c-nav-trigger__svg" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-                    <path d="M0,0h24v24H0V0z" fill="none"/>
-                    <path d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z"/></svg>
-            </button>
-        </div>
-        <div class="c-mobile-nav__nav">
-            <nav class="c-nav">
-                <ul class="o-list c-nav__list">
-                    <li class="c-nav__item"><a href="water.html" class="c-nav__link">Water</a></li>
-                    <li class="c-nav__item"><a href="temperature.html" class="c-nav__link">Temperature</a></li>
-                    <li class="c-nav__item"><a href="coffee.html" class="c-nav__link">Coffee</a></li>                  
-                </ul>
-            </nav>
-        </div>
-    </div>
+      <div class="c-mobile-nav__bg"></div>
+      <div class="c-mobile-nav__body">
+          <div class="c-mobile-nav__header">
+              <div class="c-header__logo">
+                  <a href="index.html">
+                      <h1>Coffi</h1>
+                  </a>
+              </div>
+              <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                  <svg class="c-nav-trigger__svg" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                      <path d="M0,0h24v24H0V0z" fill="none"/>
+                      <path d="M3,18h13v-2H3V18z M3,13h10v-2H3V13z M3,6v2h13V6H3z M21,15.59L17.42,12L21,8.41L19.59,7l-5,5l5,5L21,15.59z"/></svg>
+              </button>
+          </div>
+          <div class="c-mobile-nav__nav">
+              <nav class="c-nav">
+                  <ul class="o-list c-nav__list">
+                      <li class="c-nav__item"><a href="water.html" class="c-nav__link c-nav__link_active">Water</a></li>
+                      <li class="c-nav__item"><a href="temperature.html" class="c-nav__link">Temperature</a></li>
+                      <li class="c-nav__item"><a href="coffee.html" class="c-nav__link">Coffee</a></li>                  
+                  </ul>
+              </nav>
+          </div>
+      </div>
   </aside>
-</body>
+  </body>
 </html>
